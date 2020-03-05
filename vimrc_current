@@ -124,7 +124,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'wakatime/vim-wakatime'
 
 "*****************************************************************************
+" Plugs from Nathan Gilberts Vimrc
 "*****************************************************************************
+Plug 'mhinz/vim-startify'
 
 " Include user's extra bundle
 if filereadable(expand("~/.vimrc.local.bundles"))
@@ -142,6 +144,15 @@ set omnifunc=syntaxcomplete#Complete
 "*****************************************************************************
 "" Basic Setup
 "*****************************************************************************"
+
+" Highlight matching pairs of brackets. Use the '%' character to jump between
+set matchpairs+=<:>
+
+
+" Display different types of white spaces.
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+
 "" Encoding
 set encoding=utf-8
 set fileencoding=utf-8
@@ -188,6 +199,7 @@ let g:sql_type_default = 'pgsql'
 
 "" Searching
 set hlsearch
+
 set incsearch
 set ignorecase
 set smartcase
@@ -288,7 +300,6 @@ set autoindent
 set lazyredraw
 set showmode
 
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
@@ -624,6 +635,31 @@ else
   let g:airline_symbols.linenr = ''
 endif
 
+"NONE OF THIS IS WORKING FOR SOME REASON.
+" Set status line display
+"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
+
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"set statusline+=%F
+
+"set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+
+
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
+
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+let g:javascript_conceal_noarg_arrow_function = "🞅"
+let g:javascript_conceal_underscore_arrow_function = "🞅"
